@@ -1,0 +1,223 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(20, 27, 45, 0.78);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --accent-glow: rgba(99, 102, 241, 0.4);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.14) 0%, transparent 45%);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #a5b4fc, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 28px;
+    width: 100%;
+    max-width: 1120px;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card h2 {
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e2e8f0;
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+input {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result-box {
+    background: rgba(10, 14, 26, 0.75);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 115px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    word-break: break-all;
+}
+
+.badge-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.stat-badge.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+}
+
+.stat-badge.error {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.prime-list {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    max-height: 150px;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+
+.prime-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.prime-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.calc-answer {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--success);
+    margin-top: 2px;
+}
+
+.calc-answer.error {
+    color: var(--error);
+    font-size: 1.1rem;
+}
+
+.hints {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 14px;
+    border-radius: 12px;
+    line-height: 1.65;
+}
+
+.hints code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: #e2e8f0;
+}
